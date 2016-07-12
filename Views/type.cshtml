@@ -1,0 +1,17 @@
+<h2>Here are all the animals in this type:</h2>
+
+@if (@Model["animals"].Count == 0)
+{
+  <p>No animals have been added yet!</p>
+}
+else
+{
+  <ol>
+    @foreach (var animal in @Model["animals"])
+    {
+      <li>@animal.GetName()</li>
+    }
+  </ol>
+}
+<p><a href="/animals/new">Add a new animal</a></p>
+<p><a href="/">Return to Main Page</a></p>

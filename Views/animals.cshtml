@@ -1,0 +1,27 @@
+@if (@Model.Count == 0)
+{
+  <p>No animal have been added yet!</p>
+}
+else
+{
+  <h1>Here is your list of animals:</h1>
+  <ul>
+    @foreach (var animal in Model)
+    {
+      <li>@animal.GetName()</li>
+    }
+  </ul>
+  <form action="/animals" method="post">
+    <select name="sortBy">
+      <option value="name">Name</option>
+      <option value="breed">Breed</option>
+      <option value="date_of_admittance">Date of Admittance</option>
+    </select>
+    <button type="submit">Sort</button>
+  </form>
+  <form action="/animals/delete" method="post">
+    <button type="submit">Clear all animals</button>
+  </form>
+}
+<p><a href="/animals/new">Add a new animal</a></p>
+<p><a href="/">Return home</a></p>
